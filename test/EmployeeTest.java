@@ -32,8 +32,18 @@ public class EmployeeTest {
         que no exista se devuelva el decimo correspondiente
     */
     @Test
-    public void EmployeeTestNull() {
+    public void testCsEmployeeDiferent() {
         Employee e = new Employee( 450f, "EUR", 0.5f, null);
         assertTrue(e.cs() == 0.0f);
+    }
+    
+    /*
+        Test para comprobar que el salario obtenido en un mes par es igual al
+        salio con el cual se creo el objeto
+    */
+    @Test
+    public void testCorrectSalary(){
+        Employee e = new Employee( 450f, "USD", 0.5f, EmployeeType.Worker);
+        assertTrue(e.cs() == 450f);
     }
 }
