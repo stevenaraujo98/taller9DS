@@ -17,8 +17,23 @@ import static org.junit.Assert.*;
  */
 public class EmployeeTest {
     
-    public EmployeeTest() {
+    /*
+        Escenario en que el empleado Worker utiliza la moneda EUR y calcula
+        el decimo en el mes de agosto
+    */
+    @Test
+    public void testCsCurrencyIsNotUSD() {
+        Employee e = new Employee( 450f, "EUR", 0.5f, EmployeeType.Worker);
+        assertTrue(e.cs() == (450.0f * 0.95));
     }
     
-    
+    /*
+        Escenario en el que se prueba  que cuando se envia un tipo de empleado 
+        que no exista se devuelva el decimo correspondiente
+    */
+    @Test
+    public void EmployeeTestNull() {
+        Employee e = new Employee( 450f, "EUR", 0.5f, null);
+        assertTrue(e.cs() == 0.0f);
+    }
 }
